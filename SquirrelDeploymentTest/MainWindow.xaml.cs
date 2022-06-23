@@ -19,7 +19,7 @@ namespace SquirrelDeploymentTest
 
             Title = "Squirrel Deployment Test v." + manager.CurrentlyInstalledVersion().ToString();
             CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
-            InstallDir.Text = manager.RootAppDirectory;
+            AppName.Text = manager.ApplicationName;
         }
 
         private async void CheckForUpdatesButton_Click(object sender, RoutedEventArgs e)

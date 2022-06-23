@@ -7,8 +7,8 @@
         Title="MainWindow" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Instalation directory"/>
-            <TextBox x:Name="InstallDir" IsReadOnly="True"/>
+            <Label Content="Application name"/>
+            <TextBox x:Name="AppName" IsReadOnly="True"/>
             <TextBlock Text="Current version"/>
             <TextBox x:Name="CurrentVersionTextBox" IsReadOnly="True"/>
             <Button x:Name="UpdateButton" Click="UpdateButton_Click"
