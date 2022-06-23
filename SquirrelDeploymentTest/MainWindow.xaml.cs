@@ -30,7 +30,7 @@ namespace SquirrelDeploymentTest
 
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            await manager.ApplyReleases(updateInfo);
+            await manager.UpdateApp();
             MessageBox.Show("Updated succesfuly!");
         }
     }
