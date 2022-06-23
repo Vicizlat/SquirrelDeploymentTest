@@ -4,7 +4,7 @@
     <id>SquirrelDeploymentTest</id>
     <version>0.0.0</version>
     <title>Title</title>
-    <authors>Author</authors>
+    <authors>Victor Zlatarev</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
