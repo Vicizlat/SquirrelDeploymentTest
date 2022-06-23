@@ -3,12 +3,12 @@
   <metadata>
     <id>SquirrelDeploymentTest</id>
     <version>0.0.0</version>
-    <title>Title</title>
+    <title>Squirrel Deployment Test</title>
     <authors>Victor Zlatarev</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>http://project_url_here_or_delete_this_line/</projectUrl>
-    <iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>
+    <projectUrl>https://github.com/Vicizlat/SquirrelDeploymentTest</projectUrl>
+    <!--<iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>-->
     <description>Description</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
     <copyright>$copyright$</copyright>
