@@ -26,11 +26,12 @@
 	</ItemGroup>
 
 	<PropertyGroup>
+		<StartupObject>SquirrelDeploymentTest.App</StartupObject>
 		<NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
 		<SquirrelTools>$(Pkgsquirrel_windows)\tools</SquirrelTools>
 
-		<StartupObject>SquirrelDeploymentTest.App</StartupObject>
-		<Version>1.0.8</Version>
+		<Version>1.0.9</Version>
+		
 		<Authors>Victor Zlatarev</Authors>
 		<Copyright>Victor Zlatarev © 2020</Copyright>
 		<NuspecFile>$(SolutionDir)SquirrelDeploymentTest\ReleaseSpec.nuspec</NuspecFile>
