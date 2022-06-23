@@ -6,6 +6,7 @@ namespace SquirrelDeploymentTest
     public partial class MainWindow : Window
     {
         UpdateManager manager;
+        UpdateInfo updateInfo;
 
         public MainWindow()
         {
@@ -23,13 +24,13 @@ namespace SquirrelDeploymentTest
 
         private async void CheckForUpdatesButton_Click(object sender, RoutedEventArgs e)
         {
-            UpdateInfo updateInfo = await manager.CheckForUpdate();
+            updateInfo = await manager.CheckForUpdate();
             UpdateButton.IsEnabled = updateInfo.ReleasesToApply.Count > 0;
         }
 
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
-            await manager.UpdateApp();
+            await manager.ApplyReleases(updateInfo);
             MessageBox.Show("Updated succesfuly!");
         }
     }
