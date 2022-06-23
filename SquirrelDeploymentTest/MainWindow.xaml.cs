@@ -17,8 +17,8 @@ namespace SquirrelDeploymentTest
         {
             manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/Vicizlat/SquirrelDeploymentTest");
 
-            Title = "Squirrel Deployment Test v." + manager.CurrentlyInstalledVersion().ToString();
-            CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
+            //Title = "Squirrel Deployment Test v." + manager.CurrentlyInstalledVersion().ToString();
+            //CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
             AppName.Text = manager.ApplicationName;
         }
 

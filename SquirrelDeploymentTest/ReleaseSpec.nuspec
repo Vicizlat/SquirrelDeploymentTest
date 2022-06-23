@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
-  <metadata>
-    <id>SquirrelDeploymentTest</id>
-    <version>0.0.0</version>
-    <title>Squirrel Deployment Test</title>
-    <authors>Victor Zlatarev</authors>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="expression">MIT</license>
-    <projectUrl>https://github.com/Vicizlat/SquirrelDeploymentTest</projectUrl>
-    <!--<iconUrl>http://icon_url_here_or_delete_this_line/</iconUrl>-->
-    <description>Description</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>$copyright$</copyright>
-    <tags>Tag1 Tag2</tags>
-  </metadata>
-  
-  <files>
-    <file src="bin\Release\net6.0-windows\**" target="lib\net45"/>
-  </files>
+	<metadata>
+		<id>SquirrelDeploymentTest</id>
+		<version>0.0.0</version>
+		<title>Squirrel Deployment Test</title>
+		<authors>Victor Zlatarev</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<license type="expression">MIT</license>
+		<projectUrl>https://github.com/Vicizlat/SquirrelDeploymentTest</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/Vicizlat/SquirrelDeploymentTest/main/SquirrelDeploymentTest/icon.png</iconUrl>
+		<description>Description</description>
+		<copyright>Victor Zlatarev © 2020</copyright>
+	</metadata>
+
+	<files>
+		<file src="bin\Release\net6.0-windows\**" target="lib\net45"/>
+	</files>
 </package>

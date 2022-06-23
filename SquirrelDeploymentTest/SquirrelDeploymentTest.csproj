@@ -1,38 +1,47 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NuGet.CommandLine" Version="6.2.1">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="squirrel.windows" Version="1.9.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NuGet.CommandLine" Version="6.2.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="squirrel.windows" Version="1.9.0" />
+	</ItemGroup>
 
-  <PropertyGroup>
-    <NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
-    <SquirrelTools>$(Pkgsquirrel_windows)\tools</SquirrelTools>
+	<ItemGroup>
+		<None Update="icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Loading.gif">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
-    <Version>1.0.9</Version>
+	<PropertyGroup>
+		<NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
+		<SquirrelTools>$(Pkgsquirrel_windows)\tools</SquirrelTools>
 
-    <NuspecFile>$(SolutionDir)SquirrelDeploymentTest\ReleaseSpec.nuspec</NuspecFile>
+		<StartupObject>SquirrelDeploymentTest.App</StartupObject>
+		<Version>1.0.8</Version>
+		<Authors>Victor Zlatarev</Authors>
+		<Copyright>Victor Zlatarev © 2020</Copyright>
+		<NuspecFile>$(SolutionDir)SquirrelDeploymentTest\ReleaseSpec.nuspec</NuspecFile>
+	</PropertyGroup>
 
-    <StartupObject>SquirrelDeploymentTest.App</StartupObject>
-  </PropertyGroup>
+	<Target Name="GenerateRelease" AfterTargets="AfterBuild" Condition="$(Configuration) == Release">
+		<XmlPeek XmlInputPath="$(NuspecFile)" Query="/package/metadata/id/text()">
+			<Output TaskParameter="Result" ItemName="ID" />
+		</XmlPeek>
 
-  <Target Name="GenerateRelease" AfterTargets="AfterBuild" Condition="$(Configuration) == Release">
-    <XmlPeek XmlInputPath="$(NuspecFile)" Query="/package/metadata/id/text()">
-      <Output TaskParameter="Result" ItemName="ID" />
-    </XmlPeek>
-
-    <Exec Command="$(NugetTools)\NuGet.exe pack $(NuspecFile) -Version $(Version) -Properties Configuration=Release -OutputDirectory $(SolutionDir)Deployment\GeneratedNugets" />
-
-    <Exec Command="$(SquirrelTools)\Squirrel.exe --releasify $(SolutionDir)Deployment\GeneratedNugets\@(ID).$(Version).nupkg -r $(SolutionDir)Deployment\Releases -g .\Loading.gif --no-msi" />
-  </Target>
-
+		<Exec Command="$(NugetTools)\NuGet.exe pack $(NuspecFile) -Version $(Version) -Properties Configuration=Release -OutputDirectory $(SolutionDir)Deployment\GeneratedNugets" />
+		<Exec Command="$(SquirrelTools)\Squirrel.exe --releasify $(SolutionDir)Deployment\GeneratedNugets\@(ID).$(Version).nupkg -r $(SolutionDir)Deployment\Releases -g $(SolutionDir)Loading.gif --no-msi" />
+	</Target>
 </Project>
