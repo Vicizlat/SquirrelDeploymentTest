@@ -31,7 +31,7 @@ namespace SquirrelDeploymentTest
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             await manager.UpdateApp();
-            UpdateManager.RestartApp();
+            UpdateManager.RestartApp("SquirrelDeploymentTest.exe");
             MessageBox.Show("Updated succesfuly!");
         }
     }
