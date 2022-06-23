@@ -7,23 +7,13 @@
         Title="MainWindow" Height="450" Width="800" Loaded="MainWindow_Loaded">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label>
-                Current version
-            </Label>
-            
-            <TextBox x:Name="CurrentVersionTextBox"
-                IsReadOnly="True">
-                
-            </TextBox>
-
+            <Label Content="Instalation directory"/>
+            <TextBox x:Name="InstallDir" IsReadOnly="True"/>
+            <TextBlock Text="Current version"/>
+            <TextBox x:Name="CurrentVersionTextBox" IsReadOnly="True"/>
             <Button x:Name="UpdateButton" Click="UpdateButton_Click"
-                Margin="0,15,0,0" IsEnabled="False">
-                Update
-            </Button>
-
-            <Button Click="CheckForUpdatesButton_Click">
-                Check
-            </Button>
+                Margin="0,15,0,0" IsEnabled="False" Content="Update"/>
+            <Button Click="CheckForUpdatesButton_Click" Content="Check"/>
         </StackPanel>
     </Grid>
 </Window>
