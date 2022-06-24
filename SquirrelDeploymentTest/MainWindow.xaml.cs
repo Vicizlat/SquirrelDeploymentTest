@@ -7,6 +7,7 @@ namespace SquirrelDeploymentTest
     {
         UpdateManager manager;
         UpdateInfo updateInfo;
+        string installedVersion;
 
         public MainWindow()
         {
@@ -16,10 +17,10 @@ namespace SquirrelDeploymentTest
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             manager = await UpdateManager.GitHubUpdateManager(@"https://github.com/Vicizlat/SquirrelDeploymentTest");
-
-            //Title = "Squirrel Deployment Test v." + manager.CurrentlyInstalledVersion().ToString();
-            //CurrentVersionTextBox.Text = manager.CurrentlyInstalledVersion().ToString();
             AppName.Text = manager.ApplicationName;
+            installedVersion = manager.CurrentlyInstalledVersion().ToString();
+            Title = "Squirrel Deployment Test v." + installedVersion;
+            CurrentVersionTextBox.Text = installedVersion;
         }
 
         private async void CheckForUpdatesButton_Click(object sender, RoutedEventArgs e)
@@ -31,7 +32,7 @@ namespace SquirrelDeploymentTest
         private async void UpdateButton_Click(object sender, RoutedEventArgs e)
         {
             await manager.UpdateApp();
-            MessageBox.Show("Updated succesfuly!");
+            MessageBox.Show($"Succesfuly Updated from v.{installedVersion} to v.{updateInfo.FutureReleaseEntry.Version}!");
             UpdateManager.RestartApp("SquirrelDeploymentTest.exe");
         }
     }

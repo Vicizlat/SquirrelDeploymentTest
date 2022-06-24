@@ -30,8 +30,8 @@
 		<NugetTools>$(PkgNuGet_CommandLine)\tools</NugetTools>
 		<SquirrelTools>$(Pkgsquirrel_windows)\tools</SquirrelTools>
 
-		<Version>1.0.9</Version>
-		
+		<Version>1.0.0</Version>
+
 		<Authors>Victor Zlatarev</Authors>
 		<Copyright>Victor Zlatarev © 2020</Copyright>
 		<NuspecFile>$(SolutionDir)SquirrelDeploymentTest\ReleaseSpec.nuspec</NuspecFile>
@@ -44,5 +44,6 @@
 
 		<Exec Command="$(NugetTools)\NuGet.exe pack $(NuspecFile) -Version $(Version) -Properties Configuration=Release -OutputDirectory $(SolutionDir)Deployment\GeneratedNugets" />
 		<Exec Command="$(SquirrelTools)\Squirrel.exe --releasify $(SolutionDir)Deployment\GeneratedNugets\@(ID).$(Version).nupkg -r $(SolutionDir)Deployment\Releases -g $(SolutionDir)Loading.gif --no-msi" />
+		<!--<Exec Command="start $(SolutionDir)upload.bat $(Version)" />-->
 	</Target>
 </Project>
